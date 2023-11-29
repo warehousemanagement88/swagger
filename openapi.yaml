@@ -172,7 +172,7 @@ paths:
           description: Invalid input
       security:
         - token: []
-  /gudanga?id={gudangaId}:
+  /warehouse_gudanga?id={gudangaId}:
     get:
       tags:
         - Gudang A
@@ -276,7 +276,7 @@ paths:
           description: Invalid input
       security:
         - token: []
-  /gudangb/{gudangbId}:
+  /warehouse_gudangb/{gudangbId}:
     get:
       tags:
         - Gudang B
@@ -380,7 +380,7 @@ paths:
           description: Invalid input
       security:
         - token: []
-  /gudangc/{gudangcId}:
+  /warehouse_gudangc/{gudangcId}:
     get:
       tags:
         - Gudang C
