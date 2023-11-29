@@ -438,8 +438,3 @@ requestBodies:
             type: array
             items:
               $ref: "#/components/schemas/AuthResponse"
-  securitySchemes:
-    token:
-      type: apiKey
-      name: Authorization
-      in: header
