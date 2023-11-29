@@ -222,6 +222,7 @@ paths:
           description: GudangA not found
       security:
         - token: []
+  /deleteGudangA/{gudangaId}:
     delete:
       tags:
         - Gudang A
@@ -235,11 +236,6 @@ paths:
         schema:
           type: string
         description: ID of the GudangA
-    requestBody:
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/GudangA"
     responses:
       "200":
         description: GudangA deleted successfully
@@ -331,6 +327,7 @@ paths:
           description: GudangB not found
       security:
         - token: []
+  /deleteGudangB/{gudangbId}:
     delete:
       tags:
         - Gudang B
@@ -344,11 +341,6 @@ paths:
         schema:
           type: string
         description: ID of the GudangB
-    requestBody:
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/GudangB"
     responses:
       "200":
         description: GudangB deleted successfully
@@ -440,6 +432,7 @@ paths:
           description: GudangC not found
       security:
         - token: []
+  /deleteGudangC/{gudangcId}:
     delete:
       tags:
         - Gudang C
@@ -453,11 +446,6 @@ paths:
         schema:
           type: string
         description: ID of the GudangC
-    requestBody:
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/GudangC"
     responses:
       "200":
         description: GudangC deleted successfully
