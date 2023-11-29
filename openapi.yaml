@@ -222,181 +222,174 @@ paths:
           description: GudangA not found
       security:
         - token: []
-/warehouse-gudangb:
-  get:
-    tags:
-      - GudangB
-    summary: Get All GudangB
-    description: List Data GudangB
-    operationId: getAllGudangB
-    responses:
-      "200":
-        description: successful operation
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/GudangBArray"
-    security:
-      - token: []
-
-  post:
-    tags:
-      - GudangB
-    summary: Create GudangB
-    description: Create a new GudangB
-    operationId: createGudangB
-    requestBody:
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/GudangB"
-    responses:
-      "201":
-        description: GudangB created successfully
-      "400":
-        description: Invalid input
-    security:
-      - token: []
-
-/gudangb/{gudangbId}:
-  get:
-    tags:
-      - GudangB
-    summary: Get GudangB by ID
-    description: Get a GudangB by its ID
-    operationId: getGudangBById
-    parameters:
-      - name: gudangbId
-        in: path
-        required: true
-        schema:
-          type: string
-        description: ID of the GudangB
-    responses:
-      "200":
-        description: successful operation
+  /warehouse-gudangb:
+    get:
+      tags:
+        - GudangB
+      summary: Get All GudangB
+      description: List Data GudangB
+      operationId: getAllGudangB
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GudangBArray"
+      security:
+        - token: []
+    post:
+      tags:
+        - GudangB
+      summary: Create GudangB
+      description: Create a new GudangB
+      operationId: createGudangB
+      requestBody:
         content:
           application/json:
             schema:
               $ref: "#/components/schemas/GudangB"
-      "404":
-        description: GudangB not found
-    security:
-      - token: []
-
-  put:
-    tags:
-      - GudangB
-    summary: Update GudangB
-    description: Update an existing GudangB
-    operationId: updateGudangB
-    parameters:
-      - name: gudangbId
-        in: path
-        required: true
-        schema:
-          type: string
-        description: ID of the GudangB
-    requestBody:
-      content:
-        application/json:
+      responses:
+        "201":
+          description: GudangB created successfully
+        "400":
+          description: Invalid input
+      security:
+        - token: []
+  /gudangb/{gudangbId}:
+    get:
+      tags:
+        - GudangB
+      summary: Get GudangB by ID
+      description: Get a GudangB by its ID
+      operationId: getGudangBById
+      parameters:
+        - name: gudangbId
+          in: path
+          required: true
           schema:
-            $ref: "#/components/schemas/GudangB"
-    responses:
-      "200":
-        description: GudangB updated successfully
-      "404":
-        description: GudangB not found
-    security:
-      - token: []
-
-/warehouse-gudangc:
-  get:
-    tags:
-      - GudangC
-    summary: Get All GudangC
-    description: List Data GudangC
-    operationId: getAllGudangC
-    responses:
-      "200":
-        description: successful operation
+            type: string
+          description: ID of the GudangB
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GudangB"
+        "404":
+          description: GudangB not found
+      security:
+        - token: []
+    put:
+      tags:
+        - GudangB
+      summary: Update GudangB
+      description: Update an existing GudangB
+      operationId: updateGudangB
+      parameters:
+        - name: gudangbId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: ID of the GudangB
+      requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/GudangCArray"
-    security:
-      - token: []
-
-  post:
-    tags:
-      - GudangC
-    summary: Create GudangC
-    description: Create a new GudangC
-    operationId: createGudangC
-    requestBody:
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/GudangC"
-    responses:
-      "201":
-        description: GudangC created successfully
-      "400":
-        description: Invalid input
-    security:
-      - token: []
-
-/gudangc/{gudangcId}:
-  get:
-    tags:
-      - GudangC
-    summary: Get GudangC by ID
-    description: Get a GudangC by its ID
-    operationId: getGudangCById
-    parameters:
-      - name: gudangcId
-        in: path
-        required: true
-        schema:
-          type: string
-        description: ID of the GudangC
-    responses:
-      "200":
-        description: successful operation
+              $ref: "#/components/schemas/GudangB"
+      responses:
+        "200":
+          description: GudangB updated successfully
+        "404":
+          description: GudangB not found
+      security:
+        - token: []
+  /warehouse-gudangc:
+    get:
+      tags:
+        - GudangC
+      summary: Get AllGudangC
+      description: List DataGudangC
+      operationId: getAllGudangB
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GudangCArray"
+      security:
+        - token: []
+    post:
+      tags:
+        - GudangC
+      summary: Create GudangC
+      description: Create a new GudangC
+      operationId: createGudangC
+      requestBody:
         content:
           application/json:
             schema:
               $ref: "#/components/schemas/GudangC"
-      "404":
-        description: GudangC not found
-    security:
-      - token: []
-
-  put:
-    tags:
-      - GudangC
-    summary: Update GudangC
-    description: Update an existing GudangC
-    operationId: updateGudangC
-    parameters:
-      - name: gudangcId
-        in: path
-        required: true
-        schema:
-          type: string
-        description: ID of the GudangC
-    requestBody:
-      content:
-        application/json:
+      responses:
+        "201":
+          description: GudangC created successfully
+        "400":
+          description: Invalid input
+      security:
+        - token: []
+  /gudangb/{gudangcId}:
+    get:
+      tags:
+        - GudangC
+      summary: Get GudangC by ID
+      description: Get a GudangC by its ID
+      operationId: getGudangCById
+      parameters:
+        - name: gudangcId
+          in: path
+          required: true
           schema:
-            $ref: "#/components/schemas/GudangC"
-    responses:
-      "200":
-        description: GudangC updated successfully
-      "404":
-        description: GudangC not found
-    security:
-      - token: []
+            type: string
+          description: ID of the GudangC
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GudangC"
+        "404":
+          description: GudangC not found
+      security:
+        - token: []
+    put:
+      tags:
+        - GudangC
+      summary: Update GudangC
+      description: Update an existing GudangC
+      operationId: updateGudangC
+      parameters:
+        - name: gudangcId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: ID of the GudangC
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GudangC"
+      responses:
+        "200":
+          description: GudangC updated successfully
+        "404":
+          description: GudangC not found
+      security:
+        - token: []
 
 requestBodies:
   AuthReq:
