@@ -47,7 +47,7 @@ tags:
       description: Deskripsi dan Kode Program
       url: https://warehousemanagement88.github.io/gcf/gudangc/
 paths:
-  /warehouse-user:
+  /warehouse_user:
     get:
       tags:
         - User
@@ -65,7 +65,7 @@ paths:
                   $ref: "#/components/schemas/User"
         "400":
           description: Invalid status value
-  /warehouse-login:
+  /warehouse_login:
     post:
       tags:
         - Auth
@@ -88,7 +88,7 @@ paths:
           description: Invalid input
       security:
         - token: []
-  /warehouse-staff/{staffId}:
+  /warehouse_staff/{staffId}:
     get:
       tags:
         - Staff
@@ -138,10 +138,10 @@ paths:
           description: Staff not found
       security:
         - token: []
-  /warehouse-gudanga:
+  /warehouse_gudanga:
     get:
       tags:
-        - GudangA
+        - Gudang A
       summary: Get All GudangA
       description: List Data GudangA
       operationId: getAllGudangA
@@ -156,7 +156,7 @@ paths:
         - token: []
     post:
       tags:
-        - GudangA
+        - Gudang A
       summary: Create GudangA
       description: Create a new GudangA
       operationId: createGudangA
@@ -175,7 +175,7 @@ paths:
   /gudanga/{gudangaId}:
     get:
       tags:
-        - GudangA
+        - Gudang A
       summary: Get GudangA by ID
       description: Get a GudangA by its ID
       operationId: getGudangAById
@@ -199,7 +199,7 @@ paths:
         - token: []
     put:
       tags:
-        - GudangA
+        - Gudang A
       summary: Update GudangA
       description: Update an existing GudangA
       operationId: updateGudangA
@@ -222,10 +222,10 @@ paths:
           description: GudangA not found
       security:
         - token: []
-  /warehouse-gudangb:
+  /warehouse_gudangb:
     get:
       tags:
-        - GudangB
+        - Gudang B
       summary: Get All GudangB
       description: List Data GudangB
       operationId: getAllGudangB
@@ -240,7 +240,7 @@ paths:
         - token: []
     post:
       tags:
-        - GudangB
+        - Gudang B
       summary: Create GudangB
       description: Create a new GudangB
       operationId: createGudangB
@@ -259,7 +259,7 @@ paths:
   /gudangb/{gudangbId}:
     get:
       tags:
-        - GudangB
+        - Gudang B
       summary: Get GudangB by ID
       description: Get a GudangB by its ID
       operationId: getGudangBById
@@ -283,7 +283,7 @@ paths:
         - token: []
     put:
       tags:
-        - GudangB
+        - Gudang B
       summary: Update GudangB
       description: Update an existing GudangB
       operationId: updateGudangB
@@ -306,10 +306,10 @@ paths:
           description: GudangB not found
       security:
         - token: []
-  /warehouse-gudangc:
+  /warehouse_gudangc:
     get:
       tags:
-        - GudangC
+        - Gudang C
       summary: Get AllGudangC
       description: List DataGudangC
       operationId: getAllGudangB
@@ -324,7 +324,7 @@ paths:
         - token: []
     post:
       tags:
-        - GudangC
+        - Gudang C
       summary: Create GudangC
       description: Create a new GudangC
       operationId: createGudangC
@@ -340,10 +340,10 @@ paths:
           description: Invalid input
       security:
         - token: []
-  /gudangb/{gudangcId}:
+  /gudangc/{gudangcId}:
     get:
       tags:
-        - GudangC
+        - Gudang C
       summary: Get GudangC by ID
       description: Get a GudangC by its ID
       operationId: getGudangCById
@@ -367,7 +367,7 @@ paths:
         - token: []
     put:
       tags:
-        - GudangC
+        - Gudang C
       summary: Update GudangC
       description: Update an existing GudangC
       operationId: updateGudangC
@@ -391,24 +391,119 @@ paths:
       security:
         - token: []
 
-requestBodies:
-  AuthReq:
-    description: Request Authentication
-    content:
-      application/json:
-        schema:
-          $ref: "#/components/schemas/Login"
-  UserArray:
-    description: List of user object
-    content:
-      application/json:
-        schema:
-          type: array
-          items:
-            $ref: "#/components/schemas/AuthResponse"
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        ID:
+          type: string
+          format: uuid
+        FirstName:
+          type: string
+        LastName:
+          type: string
+        Email:
+          type: string
+          format: email
+        Password:
+          type: string
+        Confirmpassword:
+          type: string
+        Salt:
+          type: string
+        Role:
+          type: string
+    Login:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+          format: password
+    Staff:
+      type: object
+      properties:
+        ID:
+          type: string
+          format: uuid
+        NamaLengkap:
+          type: string
+        Jabatan:
+          type: string
+        JenisKelamin:
+          type: string
+        Akun:
+          $ref: "#/components/schemas/User"
+    GudangA:
+      type: object
+      properties:
+        ID:
+          type: string
+          format: uuid
+        Brand:
+          type: string
+        Name:
+          type: string
+        Category:
+          type: string
+        QTY:
+          type: string
+        SKU:
+          type: string
+        SellingPrice:
+          type: string
+        OriginalPrice:
+          type: string
+        Availability:
+          type: string
+        Color:
+          type: string
+        Breadcrumbs:
+          type: string
+        Date:
+          type: string
+          format: date-time
 
-securitySchemes:
-  token:
-    type: apiKey
-    name: Authorization
-    in: header
+    GudangAArray:
+      type: array
+      items:
+        $ref: "#/components/schemas/GudangA"
+
+    AuthResponse:
+      type: object
+      properties:
+        status:
+          type: boolean
+        token:
+          type: string
+        message:
+          type: string
+        role:
+          type: string
+  requestBodies:
+    AuthReq:
+      description: Request Authentication
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Login"
+    UserArray:
+      description: List of user object
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/AuthResponse"
+
+  securitySchemes:
+    token:
+      type: apiKey
+      name: Authorization
+      in: header
