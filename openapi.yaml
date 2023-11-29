@@ -515,7 +515,7 @@ components:
       type: array
       items:
         $ref: "#/components/schemas/GudangB"   
- GudangC:
+  GudangC:
       type: object
       properties:
         id:
