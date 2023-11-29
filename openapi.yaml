@@ -172,7 +172,7 @@ paths:
           description: Invalid input
       security:
         - token: []
-  /gudanga/{gudangaId}:
+  /gudanga?id={gudangaId}:
     get:
       tags:
         - Gudang A
