@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Dokumen API Cloud Function - OpenAPI 3.0
   description: >-
-    Dokumen API Cloud Function Aplikasi Internship Monitoring
+    Dokumen API Cloud Function Aplikasi Inventory Management Warehouse
   termsOfService: https://github.com/warehousemanagement88/swagger
   contact:
     email: ramadhanialnovianti@gmail.com
@@ -47,7 +47,7 @@ tags:
       description: Deskripsi dan Kode Program
       url: https://warehousemanagement88.github.io/gcf/gudangc/
 paths:
-  /intermoni-user:
+  /warehouse-user:
     get:
       tags:
         - User
@@ -65,7 +65,7 @@ paths:
                   $ref: "#/components/schemas/User"
         "400":
           description: Invalid status value
-  /intermoni-login:
+  /warehouse-login:
     post:
       tags:
         - Auth
@@ -89,374 +89,333 @@ paths:
       security:
         - token:
             - write:apiKey
-            - read:apiKey
-  /intermoni-mahasiswa/{mahasiswaId}:
+            - read:apiKey     
+  /warehouse-staff/{staffId}:
     get:
       tags:
-        - Mahasiswa
-      summary: Get Mahasiswa by ID
-      description: Get a Mahasiswa by its ID
-      operationId: getMahasiswaById
+        - Staff
+      summary: Get Staff by ID
+      description: Get a Staff by its ID
+      operationId: getStaffById
       parameters:
-        - name: mahasiswaId
+        - name: staffId
           in: path
           required: true
           schema:
             type: string
-          description: ID of the Mahasiswa
+          description: ID of the Staff
       responses:
         "200":
           description: successful operation
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Mahasiswa"
+                $ref: "#/components/schemas/Staff"
         "404":
-          description: Mahasiswa not found
+          description: Staff not found
       security:
         - token:
             - write:apiKey
             - read:apiKey
     put:
       tags:
-        - Mahasiswa
-      summary: Update Mahasiswa
-      description: Update an existing Mahasiswa
-      operationId: updateMahasiswa
+        - Staff
+      summary: Update Staff
+      description: Update an existing Staff
+      operationId: updateStaff
       parameters:
-        - name: mahasiswaId
+        - name: staffId
           in: path
           required: true
           schema:
             type: string
-          description: ID of the Mahasiswa
+          description: ID of the Staff
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Mahasiswa"
+              $ref: "#/components/schemas/Staff"
       responses:
         "200":
-          description: Mahasiswa updated successfully
+          description: Staff updated successfully
         "404":
-          description: Mahasiswa not found
+          description: Staff not found
       security:
         - token:
             - write:apiKey
             - read:apiKey
-  /intermoni-mitra/{mitraId}:
+  /warehouse-gudanga:
     get:
       tags:
-        - Mitra
-      summary: Get Mitra by ID
-      description: Get a Mitra by its ID
-      operationId: getMitraById
-      parameters:
-        - name: mitraId
-          in: path
-          required: true
-          schema:
-            type: string
-          description: ID of the Mitra
+        - GudangA
+      summary: Get All GudangA
+      description: List Data GudangA
+      operationId: getAllGudangA
       responses:
         "200":
           description: successful operation
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Mitra"
-        "404":
-          description: Mitra not found
-      security:
-        - token:
-            - write:apiKey
-            - read:apiKey
-    put:
-      tags:
-        - Mitra
-      summary: Update Mitra
-      description: Update an existing Mitra
-      operationId: updateMitra
-      parameters:
-        - name: mitraId
-          in: path
-          required: true
-          schema:
-            type: string
-          description: ID of the Mitra
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/Mitra"
-      responses:
-        "200":
-          description: Mitra updated successfully
-        "404":
-          description: Mitra not found
-      security:
-        - token:
-            - write:apiKey
-            - read:apiKey
-  /intermoni-magang:
-    get:
-      tags:
-        - Magang
-      summary: Get All Magang
-      description: List Data Magang
-      operationId: getAllMagang
-      responses:
-        "200":
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/MagangArray"
+                $ref: "#/components/schemas/GudangAArray"
       security:
         - token:
             - write:apiKey
             - read:apiKey
     post:
       tags:
-        - Magang
-      summary: Create Magang
-      description: Create a new Magang
-      operationId: createMagang
+        - GudangA
+      summary: Create GudangA
+      description: Create a new GudangA
+      operationId: createGudangA
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Magang"
+              $ref: "#/components/schemas/GudangA"
       responses:
         "201":
-          description: Magang created successfully
+          description: GudangA created successfully
         "400":
           description: Invalid input
       security:
         - token:
             - write:apiKey
             - read:apiKey
-  /magang/{magangId}:
+  /gudanga/{gudangaId}:
     get:
       tags:
-        - Magang
-      summary: Get Magang by ID
-      description: Get a Magang by its ID
-      operationId: getMagangById
+        - GudangA
+      summary: Get GudangA by ID
+      description: Get a GudangA by its ID
+      operationId: getGudangAById
       parameters:
-        - name: magangId
+        - name: gudangaId
           in: path
           required: true
           schema:
             type: string
-          description: ID of the Magang
+          description: ID of the GudangA
       responses:
         "200":
           description: successful operation
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Magang"
+                $ref: "#/components/schemas/GudangA"
         "404":
-          description: Magang not found
+          description: GudangA not found
       security:
         - token:
             - write:apiKey
             - read:apiKey
     put:
       tags:
-        - Magang
-      summary: Update Magang
-      description: Update an existing Magang
-      operationId: updateMagang
+        - GudangA
+      summary: Update GudangA
+      description: Update an existing GudangA
+      operationId: updateGudangA
       parameters:
-        - name: magangId
+        - name: gudangaId
           in: path
           required: true
           schema:
             type: string
-          description: ID of the Magang
+          description: ID of the GudangA
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Magang"
+              $ref: "#/components/schemas/GudangA"
       responses:
         "200":
-          description: Magang updated successfully
+          description: GudangA updated successfully
         "404":
-          description: Magang not found
+          description: GudangA not found
       security:
         - token:
             - write:apiKey
             - read:apiKey
-  /pembimbing:
+  /warehouse-gudangb:
     get:
       tags:
-        - Pembimbing
-      summary: Get All Pembimbing
-      description: List Data Pembimbing
-      operationId: getAllPembimbing
+        - GudangB
+      summary: Get All GudangB
+      description: List Data GudangB
+      operationId: getAllGudangB
       responses:
         "200":
           description: successful operation
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PembimbingArray"
+                $ref: "#/components/schemas/GudangBArray"
+      security:
+        - token:
+            - write:apiKey
+            - read:apiKey
     post:
       tags:
-        - Pembimbing
-      summary: Create Pembimbing
-      description: Create a new Pembimbing
-      operationId: createPembimbing
+        - GudangB
+      summary: Create GudangB
+      description: Create a new GudangB
+      operationId: createGudangB
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Pembimbing"
+              $ref: "#/components/schemas/GudangB"
       responses:
         "201":
-          description: Pembimbing created successfully
+          description: GudangB created successfully
         "400":
           description: Invalid input
       security:
         - token:
             - write:apiKey
             - read:apiKey
-
-  /pembimbing/{pembimbingId}:
+  /gudangb/{gudangbId}:
     get:
       tags:
-        - Pembimbing
-      summary: Get Pembimbing by ID
-      description: Get a Pembimbing by its ID
-      operationId: getPembimbingById
+        - GudangB
+      summary: Get GudangB by ID
+      description: Get a GudangB by its ID
+      operationId: getGudangBById
       parameters:
-        - name: pembimbingId
+        - name: gudangbId
           in: path
           required: true
           schema:
             type: string
-          description: ID of the Pembimbing
+          description: ID of the GudangB
       responses:
         "200":
           description: successful operation
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Pembimbing"
+                $ref: "#/components/schemas/GudangB"
         "404":
-          description: Pembimbing not found
-
-    put:
-      tags:
-        - Pembimbing
-      summary: Update Pembimbing
-      description: Update an existing Pembimbing
-      operationId: updatePembimbing
-      parameters:
-        - name: pembimbingId
-          in: path
-          required: true
-          schema:
-            type: string
-          description: ID of the Pembimbing
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/Pembimbing"
-      responses:
-        "200":
-          description: Pembimbing updated successfully
-        "404":
-          description: Pembimbing not found
+          description: GudangB not found
       security:
         - token:
             - write:apiKey
             - read:apiKey
-  /mentor:
+    put:
+      tags:
+        - GudangB
+      summary: Update GudangB
+      description: Update an existing GudangB
+      operationId: updateGudangB
+      parameters:
+        - name: gudangbId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: ID of the GudangB
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GudangB"
+      responses:
+        "200":
+          description: GudangB updated successfully
+        "404":
+          description: GudangB not found
+      security:
+        - token:
+            - write:apiKey
+            - read:apiKey
+  /warehouse-gudangc:
     get:
       tags:
-        - Mentor
-      summary: Get All Mentors
-      description: List Data Mentors
-      operationId: getAllMentors
+        - GudangC
+      summary: Get All GudangC
+      description: List Data GudangC
+      operationId: getAllGudangC
       responses:
         "200":
           description: successful operation
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/MentorArray"
+                $ref: "#/components/schemas/GudangCArray"
+      security:
+        - token:
+            - write:apiKey
+            - read:apiKey
     post:
       tags:
-        - Mentor
-      summary: Create Mentor
-      description: Create a new Mentor
-      operationId: createMentor
+        - GudangC
+      summary: Create GudangC
+      description: Create a new GudangC
+      operationId: createGudangC
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Mentor"
+              $ref: "#/components/schemas/GudangC"
       responses:
         "201":
-          description: Mentor created successfully
+          description: GudangC created successfully
         "400":
           description: Invalid input
       security:
         - token:
             - write:apiKey
             - read:apiKey
-  /mentor/{mentorId}:
+  /gudangc/{gudangcId}:
     get:
       tags:
-        - Mentor
-      summary: Get Mentor by ID
-      description: Get a Mentor by its ID
-      operationId: getMentorById
+        - GudangC
+      summary: Get GudangC by ID
+      description: Get a GudangC by its ID
+      operationId: getGudangCById
       parameters:
-        - name: mentorId
+        - name: gudangcId
           in: path
           required: true
           schema:
             type: string
-          description: ID of the Mentor
+          description: ID of the GudangC
       responses:
         "200":
           description: successful operation
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Mentor"
+                $ref: "#/components/schemas/GudangC"
         "404":
-          description: Mentor not found
-
+          description: GudangC not found
+      security:
+        - token:
+            - write:apiKey
+            - read:apiKey
     put:
       tags:
-        - Mentor
-      summary: Update Mentor
-      description: Update an existing Mentor
-      operationId: updateMentor
+        - GudangC
+      summary: Update GudangC
+      description: Update an existing GudangC
+      operationId: updateGudangC
       parameters:
-        - name: mentorId
+        - name: gudangcId
           in: path
           required: true
           schema:
             type: string
-          description: ID of the Mentor
+          description: ID of the GudangC
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Mentor"
+              $ref: "#/components/schemas/GudangC"
       responses:
         "200":
-          description: Mentor updated successfully
+          description: GudangC updated successfully
         "404":
-          description: Mentor not found
+          description: GudangC not found
       security:
         - token:
             - write:apiKey
@@ -468,7 +427,7 @@ components:
       properties:
         _id:
           type: string
-          example: asdasdasdasd
+          example: 65536731f648824bd5b661c8
         email:
           type: string
           example: admin@gmail.com
@@ -484,7 +443,7 @@ components:
         password:
           type: string
           example: secret
-    Mahasiswa:
+    Staff:
       type: object
       properties:
         id:
@@ -492,18 +451,18 @@ components:
           example: 1
         name:
           type: string
-          example: John Doe
+          example: Al Novianti Ramdhani
         studentId:
           type: string
-          example: 123456
+          example: 87654321qwe
         email:
           type: string
-          example: john@example.com
-    MahasiswaArray:
-      description: List of Mahasiswa objects
+          example: novi@gmail.com
+    StaffArray:
+      description: List of Staff objects
       type: array
       items:
-        $ref: "#/components/schemas/Mahasiswa"
+        $ref: "#/components/schemas/Staff"
     AuthResponse:
       type: object
       properties:
@@ -516,7 +475,7 @@ components:
         token:
           type: string
           example: token
-    Mitra:
+    GudangA:
       type: object
       properties:
         id:
@@ -524,19 +483,19 @@ components:
           example: 1
         name:
           type: string
-          example: Mitra Name
-        address:
+          example: Gudang A
+        category:
           type: string
-          example: Mitra Address
-        contact:
+          example: Shoes
+        quantity:
           type: string
-          example: contact@example.com
-    MitraArray:
-      description: List of Mitra objects
+          example: '100'
+    GudangAArray:
+      description: List of GudangA objects
       type: array
       items:
-        $ref: "#/components/schemas/Mitra"
-    Magang:
+        $ref: "#/components/schemas/GudangA"
+    GudangB:
       type: object
       properties:
         id:
@@ -544,19 +503,19 @@ components:
           example: 1
         name:
           type: string
-          example: Magang Name
-        duration:
+          example: Gudang B
+        category:
           type: string
-          example: 3 months
-        location:
+          example: Shoes
+        quantity:
           type: string
-          example: Magang Location
-    MagangArray:
-      description: List of Magang objects
+          example: '100'
+    GudangBArray:
+      description: List of GudangB objects
       type: array
       items:
-        $ref: "#/components/schemas/Magang"
-    Pembimbing:
+        $ref: "#/components/schemas/GudangB"   
+ GudangC:
       type: object
       properties:
         id:
@@ -564,32 +523,18 @@ components:
           example: 1
         name:
           type: string
-          example: Pembimbing Name
-        email:
+          example: Gudang C
+        category:
           type: string
-          example: pembimbing@example.com
-    PembimbingArray:
-      description: List of Pembimbing objects
+          example: Shoes
+        quantity:
+          type: string
+          example: 100
+    GudangCArray:
+      description: List of GudangC objects
       type: array
       items:
-        $ref: "#/components/schemas/Pembimbing"
-    Mentor:
-      type: object
-      properties:
-        id:
-          type: string
-          example: 1
-        name:
-          type: string
-          example: Mentor Name
-        email:
-          type: string
-          example: mentor@example.com
-    MentorArray:
-      description: List of Mentor objects
-      type: array
-      items:
-        $ref: "#/components/schemas/Mentor"
+        $ref: "#/components/schemas/GudangC"
   requestBodies:
     AuthReq:
       description: Request Authentication
