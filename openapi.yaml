@@ -226,23 +226,23 @@ paths:
     delete:
       tags:
         - Gudang A
-    summary: Delete GudangA
-    description: Delete an existing GudangA
-    operationId: deleteGudangA
-    parameters:
-      - name: gudangaId
-        in: path
-        required: true
-        schema:
-          type: string
-        description: ID of the GudangA
-    responses:
-      "200":
-        description: GudangA deleted successfully
-      "404":
-        description: GudangA not found
-    security:
-      - token: []
+      summary: Delete GudangA
+      description: Delete an existing GudangA
+      operationId: deleteGudangA
+      parameters:
+        - name: gudangaId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: ID of the GudangA
+      responses:
+        "200":
+          description: GudangA deleted successfully
+        "404":
+          description: GudangA not found
+      security:
+        - token: []
   /warehouse_gudangb:
     get:
       tags:
@@ -331,23 +331,23 @@ paths:
     delete:
       tags:
         - Gudang B
-    summary: Delete GudangB
-    description: Delete an existing GudangB
-    operationId: deleteGudangB
-    parameters:
-      - name: gudangbId
-        in: path
-        required: true
-        schema:
-          type: string
-        description: ID of the GudangB
-    responses:
-      "200":
-        description: GudangB deleted successfully
-      "404":
-        description: GudangB not found
-    security:
-      - token: []
+      summary: Delete GudangB
+      description: Delete an existing GudangB
+      operationId: deleteGudangB
+      parameters:
+        - name: gudangbId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: ID of the GudangB
+      responses:
+        "200":
+          description: GudangB deleted successfully
+        "404":
+          description: GudangB not found
+      security:
+        - token: []
   /warehouse_gudangc:
     get:
       tags:
@@ -436,23 +436,23 @@ paths:
     delete:
       tags:
         - Gudang C
-    summary: Delete GudangC
-    description: Delete an existing GudangC
-    operationId: deleteGudangC
-    parameters:
-      - name: gudangcId
-        in: path
-        required: true
-        schema:
-          type: string
-        description: ID of the GudangC
-    responses:
-      "200":
-        description: GudangC deleted successfully
-      "404":
-        description: GudangC not found
-    security:
-      - token: []
+      summary: Delete GudangC
+      description: Delete an existing GudangC
+      operationId: deleteGudangC
+      parameters:
+        - name: gudangcId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: ID of the GudangC
+      responses:
+        "200":
+          description: GudangC deleted successfully
+        "404":
+          description: GudangC not found
+      security:
+        - token: []
 
 components:
   schemas:
