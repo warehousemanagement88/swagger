@@ -510,8 +510,7 @@ components:
       items:
         $ref: "#/components/schemas/GudangB"
 
-
-     GudangC:
+    GudangC:
       type: object
       properties:
         ID:
