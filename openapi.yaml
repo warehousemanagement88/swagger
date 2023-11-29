@@ -87,9 +87,7 @@ paths:
         "405":
           description: Invalid input
       security:
-        - token:
-            - write:apiKey
-            - read:apiKey
+        - token: []
   /warehouse-staff/{staffId}:
     get:
       tags:
@@ -114,9 +112,7 @@ paths:
         "404":
           description: Staff not found
       security:
-        - token:
-            - write:apiKey
-            - read:apiKey
+        - token: []
     put:
       tags:
         - Staff
@@ -141,9 +137,7 @@ paths:
         "404":
           description: Staff not found
       security:
-        - token:
-            - write:apiKey
-            - read:apiKey
+        - token: []
   /warehouse-gudanga:
     get:
       tags:
@@ -159,9 +153,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/GudangAArray"
       security:
-        - token:
-            - write:apiKey
-            - read:apiKey
+        - token: []
     post:
       tags:
         - GudangA
@@ -179,9 +171,7 @@ paths:
         "400":
           description: Invalid input
       security:
-        - token:
-            - write:apiKey
-            - read:apiKey
+        - token: []
   /gudanga/{gudangaId}:
     get:
       tags:
@@ -206,9 +196,7 @@ paths:
         "404":
           description: GudangA not found
       security:
-        - token:
-            - write:apiKey
-            - read:apiKey
+        - token: []
     put:
       tags:
         - GudangA
@@ -233,47 +221,43 @@ paths:
         "404":
           description: GudangA not found
       security:
-        - token:
-            - write:apiKey
-            - read:apiKey
-  /warehouse-gudangb:
-    get:
-      tags:
-        - GudangB
-      summary: Get All GudangB
-      description: List Data GudangB
-      operationId: getAllGudangB
-      responses:
-        "200":
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/GudangBArray"
-      security:
-        - token:
-            - write:apiKey
-            - read:apiKey
-    post:
-      tags:
-        - GudangB
-      summary: Create GudangB
-      description: Create a new GudangB
-      operationId: createGudangB
-      requestBody:
+        - token: []
+/warehouse-gudangb:
+  get:
+    tags:
+      - GudangB
+    summary: Get All GudangB
+    description: List Data GudangB
+    operationId: getAllGudangB
+    responses:
+      "200":
+        description: successful operation
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/GudangB"
-      responses:
-        "201":
-          description: GudangB created successfully
-        "400":
-          description: Invalid input
-      security:
-        - token:
-            - write:apiKey
-            - read:apiKey
+              $ref: "#/components/schemas/GudangBArray"
+    security:
+      - token: []
+
+  post:
+    tags:
+      - GudangB
+    summary: Create GudangB
+    description: Create a new GudangB
+    operationId: createGudangB
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/GudangB"
+    responses:
+      "201":
+        description: GudangB created successfully
+      "400":
+        description: Invalid input
+    security:
+      - token: []
+
 /gudangb/{gudangbId}:
   get:
     tags:
@@ -298,9 +282,8 @@ paths:
       "404":
         description: GudangB not found
     security:
-      - token:
-          - write:apiKey
-          - read:apiKey
+      - token: []
+
   put:
     tags:
       - GudangB
@@ -325,9 +308,7 @@ paths:
       "404":
         description: GudangB not found
     security:
-      - token:
-          - write:apiKey
-          - read:apiKey
+      - token: []
 
 /warehouse-gudangc:
   get:
@@ -344,9 +325,8 @@ paths:
             schema:
               $ref: "#/components/schemas/GudangCArray"
     security:
-      - token:
-          - write:apiKey
-          - read:apiKey
+      - token: []
+
   post:
     tags:
       - GudangC
@@ -364,9 +344,7 @@ paths:
       "400":
         description: Invalid input
     security:
-      - token:
-          - write:apiKey
-          - read:apiKey
+      - token: []
 
 /gudangc/{gudangcId}:
   get:
@@ -392,9 +370,8 @@ paths:
       "404":
         description: GudangC not found
     security:
-      - token:
-          - write:apiKey
-          - read:apiKey
+      - token: []
+
   put:
     tags:
       - GudangC
@@ -419,22 +396,26 @@ paths:
       "404":
         description: GudangC not found
     security:
-      - token:
-          - write:apiKey
-          - read:apiKey
+      - token: []
 
 requestBodies:
-    AuthReq:
-      description: Request Authentication
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/Login"
-    UserArray:
-      description: List of user object
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: "#/components/schemas/AuthResponse"
+  AuthReq:
+    description: Request Authentication
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/Login"
+  UserArray:
+    description: List of user object
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: "#/components/schemas/AuthResponse"
+
+securitySchemes:
+  token:
+    type: apiKey
+    name: Authorization
+    in: header
