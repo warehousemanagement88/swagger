@@ -529,7 +529,7 @@ components:
           example: Shoes
         quantity:
           type: string
-          example: 100
+          example: '100'
     GudangCArray:
       description: List of GudangC objects
       type: array
