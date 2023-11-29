@@ -475,6 +475,77 @@ components:
       items:
         $ref: "#/components/schemas/GudangA"
 
+    GudangB:
+      type: object
+      properties:
+        ID:
+          type: string
+          format: uuid
+        Brand:
+          type: string
+        Name:
+          type: string
+        Category:
+          type: string
+        QTY:
+          type: string
+        SKU:
+          type: string
+        SellingPrice:
+          type: string
+        OriginalPrice:
+          type: string
+        Availability:
+          type: string
+        Color:
+          type: string
+        Breadcrumbs:
+          type: string
+        Date:
+          type: string
+          format: date-time
+
+    GudangBArray:
+      type: array
+      items:
+        $ref: "#/components/schemas/GudangB"
+
+
+     GudangC:
+      type: object
+      properties:
+        ID:
+          type: string
+          format: uuid
+        Brand:
+          type: string
+        Name:
+          type: string
+        Category:
+          type: string
+        QTY:
+          type: string
+        SKU:
+          type: string
+        SellingPrice:
+          type: string
+        OriginalPrice:
+          type: string
+        Availability:
+          type: string
+        Color:
+          type: string
+        Breadcrumbs:
+          type: string
+        Date:
+          type: string
+          format: date-time
+
+    GudangCArray:
+      type: array
+      items:
+        $ref: "#/components/schemas/GudangC"
+
     AuthResponse:
       type: object
       properties:
