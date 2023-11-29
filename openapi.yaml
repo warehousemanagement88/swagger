@@ -222,7 +222,6 @@ paths:
           description: GudangA not found
       security:
         - token: []
-  /deleteGudangA/{gudangaId}:
     delete:
       tags:
         - Gudang A
@@ -327,7 +326,6 @@ paths:
           description: GudangB not found
       security:
         - token: []
-  /deleteGudangB/{gudangbId}:
     delete:
       tags:
         - Gudang B
@@ -432,7 +430,6 @@ paths:
           description: GudangC not found
       security:
         - token: []
-  /deleteGudangC/{gudangcId}:
     delete:
       tags:
         - Gudang C
