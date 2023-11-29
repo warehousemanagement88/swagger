@@ -256,7 +256,7 @@ paths:
           description: Invalid input
       security:
         - token: []
-  /gudangb/{gudangbId}:
+  /warehouse-gudangb/{gudangbId}:
     get:
       tags:
         - GudangB
@@ -312,7 +312,7 @@ paths:
         - GudangC
       summary: Get AllGudangC
       description: List DataGudangC
-      operationId: getAllGudangB
+      operationId: getAllGudangC
       responses:
         "200":
           description: successful operation
@@ -340,7 +340,7 @@ paths:
           description: Invalid input
       security:
         - token: []
-  /gudangb/{gudangcId}:
+  /gudangc/{gudangcId}:
     get:
       tags:
         - GudangC
