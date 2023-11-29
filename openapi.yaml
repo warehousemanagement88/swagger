@@ -256,7 +256,7 @@ paths:
           description: Invalid input
       security:
         - token: []
-  /warehouse-gudangb/{gudangbId}:
+  /gudangb/{gudangbId}:
     get:
       tags:
         - GudangB
