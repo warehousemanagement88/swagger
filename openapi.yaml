@@ -124,7 +124,7 @@ paths:
         - token: []
     post:
       tags:
-        - Biilboard
+        - Billboard
       summary: Create Billboard
       description: Create a new Billboard
       operationId: createBillboard
